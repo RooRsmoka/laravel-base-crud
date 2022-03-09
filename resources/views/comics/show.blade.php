@@ -1,6 +1,14 @@
 @extends('layouts.default')
 
 @section('content')
+<div>
+    <a href="{{ route('comics.index') }}">Back</a>
+    <a href="{{ route('comics.edit', $comic->id) }}">Edit</a>
+    @include('partials.deleteBtn', [
+        'id' => $comic->id, 
+        'route' => 'comics.destroy'
+    ])
+</div>
 <ul>
     <li>
         <h2>Title: {{$comic->title}}</h2>
